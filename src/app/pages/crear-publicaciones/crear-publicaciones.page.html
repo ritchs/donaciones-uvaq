@@ -1,0 +1,89 @@
+<ion-header no-border>
+  <ion-toolbar  mode="ios">
+
+   <ion-buttons slot="start">
+      <ion-back-button text=""  defaulthref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Crear publicación</ion-title>
+
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-text >
+        <h1 class="ion-text-center" size="20">Ingresa tus datos de donación</h1>
+    </ion-text>
+
+<ion-list class="line-input">
+<form [formGroup]="todo" (ngSubmit)="publicar()">
+<ion-item color="light">
+  <ion-input required formControlName="nombrePaciente" placeholder="Nombre"></ion-input>
+</ion-item>
+<br>
+<ion-item color="light">
+  <ion-input required formControlName="apellidoPaciente" placeholder="Apellido"></ion-input>
+</ion-item>
+<br>
+<ion-item color="light">
+  <ion-label>DDD. MMM DD, YY</ion-label>
+  <ion-datetime required formControlName="fecha" min="2019" max="2050"
+    [dayShortNames]="customDayShortNames"
+    displayFormat="DDD. MMM DD, YY"
+    monthShortNames="ene, feb, mar, abr, may, jun, jul, aug, sep, oct, nov, dic"></ion-datetime>
+</ion-item>
+<br>
+<ion-item color="light">
+  <ion-label>Tipo de sangre</ion-label>
+  <ion-select placeholder="Seleccione" required formControlName="tipoDeSangre">
+    <ion-select-option value="O+">O+</ion-select-option>
+    <ion-select-option value="O-">O-</ion-select-option>
+    <ion-select-option value="A+">A+</ion-select-option>
+    <ion-select-option value="A-">A-</ion-select-option>
+    <ion-select-option value="B+">B+</ion-select-option>
+    <ion-select-option value="B-">B-</ion-select-option>
+    <ion-select-option value="AB+">AB+</ion-select-option>
+    <ion-select-option value="AB-">AB-</ion-select-option>
+  </ion-select>
+</ion-item>
+  <br>
+
+  <ion-item color="light">
+    <ion-label>Estado</ion-label>
+    <ion-select placeholder="" required formControlName="estado">
+      <ion-select-option  value="Michoacán">Michoacán</ion-select-option>
+      <ion-select-option value="Queretaro">Queretaro</ion-select-option>
+      <ion-select-option value="Sinaloa">Sinaloa</ion-select-option>
+      <ion-select-option value="Guerrero">Guerrero</ion-select-option>
+    </ion-select>
+  </ion-item>
+<br>
+
+<ion-item color="light">
+    <ion-label>Ciudad</ion-label>
+    <ion-select placeholder="" required formControlName="ciudad">
+      <ion-select-option  value="Morelia">Morelia</ion-select-option>
+      <ion-select-option value="Tequisquiapan">Tequisquiapan</ion-select-option>
+      <ion-select-option value="Culiacán">Culiacán</ion-select-option>
+      <ion-select-option value="Chilpancingo">Chilpancingo</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br>
+
+  <ion-item color="light">
+      <ion-label>Hospital</ion-label>
+      <ion-select placeholder="" required formControlName="idHospital">
+        <ion-select-option  value="5dba2dfa1c9d4400001e531a">Victoria</ion-select-option>
+        <ion-select-option value="5dba2c701c9d4400001e5316">San José</ion-select-option>
+        <ion-select-option value="5dba2dfa1c9d4400001e531a">Ángeles</ion-select-option>
+        <ion-select-option value="5dba2c701c9d4400001e5316">Hospital Sur</ion-select-option>
+      </ion-select>
+    </ion-item>
+  <br><br>
+<ion-button type="submit" color="danger" expand="block" [disabled]="!todo.valid">Publicar</ion-button>
+</form>
+</ion-list>
+
+</ion-content>

@@ -1,0 +1,71 @@
+<ion-header no-border>
+  <ion-toolbar color="danger">
+
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaulthref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Donapp</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+<form [formGroup]="todo" (ngSubmit)="registrar()">
+ 
+    <ion-text color="light">
+      <h1 class="ion-text-center" size="40">Crear una cuenta</h1>
+    </ion-text><br><br>
+    <ion-list class="line-input">
+      <ion-item color="light">
+        <ion-label>Nombre</ion-label>
+        <ion-input type="text" required formControlName="nombre"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item color="light">
+        <ion-label>Apellido</ion-label>
+        <ion-input type="text" required formControlName="apellidos"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item color="light">
+        <ion-label>Correo</ion-label>
+        <ion-input type="email" required formControlName="email"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item color="light">
+        <ion-label>Contraseña</ion-label>
+        <ion-input type="password" min="6" required formControlName="pass"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item color="light">
+        <ion-label>Tipo de sangre</ion-label>
+        <ion-select placeholder="Seleccione" required formControlName="tipoDeSangre">
+          <ion-select-option value="O+">O+</ion-select-option>
+          <ion-select-option value="O-">O-</ion-select-option>
+          <ion-select-option value="A+">A+</ion-select-option>
+          <ion-select-option value="A-">A-</ion-select-option>
+          <ion-select-option value="B+">B+</ion-select-option>
+          <ion-select-option value="B-">B-</ion-select-option>
+          <ion-select-option value="AB+">AB+</ion-select-option>
+          <ion-select-option value="AB-">AB-</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <ion-item color="light">
+        <ion-label>Tipo de donador</ion-label>
+        <ion-select placeholder="Seleccione" required formControlName="tipoDeDonador">
+          <ion-select-option value="Altruista">Altruista</ion-select-option>
+          <ion-select-option value="Directo">Directo</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <ion-checkbox color="light" checked="false" required formControlName="peso"></ion-checkbox>
+      <ion-label color="light"> ¿Pesas más de 50Kg?</ion-label>
+      <br><br>
+      <ion-checkbox color="light" checked="false" required formControlName="mayorDeEdad"></ion-checkbox>
+      <ion-label color="light"> ¿Eres mayor de edad?</ion-label>
+      <br><br><br>
+      <ion-button class="aumentar-letra" color="light" expand="block" type="submit" [disabled]="!todo.valid">Registrarse
+      </ion-button>
+    </ion-list>
+</form>
+</ion-content>

@@ -1,0 +1,38 @@
+
+ <ion-header no-border>
+  <ion-toolbar   color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+      <ion-buttons slot="end" [routerLink]="['/perfil']">
+          <ion-avatar>
+              <img src="/assets/Avatar.PNG">
+          </ion-avatar>
+        </ion-buttons>
+
+
+    <ion-title>Publicacion</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="light">
+  <ion-searchbar id="barra" color="light"></ion-searchbar>
+
+  <ion-button class="cambia" [routerLink]="['/mostrar-publicacion']">Directos</ion-button>
+  <ion-button class="cambia" [routerLink]="['/mostrar-hospital']" color="success">Altruista</ion-button>
+ 
+  <ion-row *ngFor="let item of publication">
+    <ion-col>
+       <ion-card>
+           <ion-card-header>
+             <ion-card-title>
+               <h5>Paciente: {{item.nombrePaciente}} {{item.apellidoPaciente}}</h5>
+               <h5>Tipo de sangre: {{item.tipoDeSangre}}</h5>
+             </ion-card-title>
+           </ion-card-header>
+         </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

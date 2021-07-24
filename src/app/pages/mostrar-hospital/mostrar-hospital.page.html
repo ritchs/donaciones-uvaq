@@ -1,0 +1,53 @@
+<ion-header no-border padding>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" [routerLink]="['/perfil']">
+      <ion-avatar>
+        <img src="/assets/Avatar.PNG" />
+      </ion-avatar>
+    </ion-buttons>
+    <ion-title>Hospitales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar id="barra" color="light"></ion-searchbar>
+
+  <ion-button class="cambia" [routerLink]="['/mostrar-publicacion']"
+    >Directos</ion-button
+  >
+  <ion-button
+    class="cambia"
+    [routerLink]="['/mostrar-hospital']"
+    color="success"
+    >Altruista</ion-button
+  >
+  <ion-row *ngFor="let item of hospitales">
+    <ion-col>
+      <ion-card mode="ios">
+        <ion-card-header>
+          <ion-card-title>
+            {{item.Nombre}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+      
+          <ion-list color="light">
+            <ion-list-header>
+              Horarios
+            </ion-list-header>
+
+            <ion-item line="none" *ngFor="let hora of item.Horarios">
+              <ion-label>
+                <h2>{{hora}}</h2>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

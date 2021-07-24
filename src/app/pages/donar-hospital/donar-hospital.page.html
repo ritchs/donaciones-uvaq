@@ -1,0 +1,28 @@
+<ion-header no-border>
+  <ion-toolbar   color="danger">
+
+    <ion-buttons slot="start">
+      <ion-back-button text=""  defaulthref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Donapp</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="light">
+  <ion-searchbar id="barra" color="light"></ion-searchbar>
+  
+  <ion-button class="cambia" [routerLink]="['/mostrar-publicacion']">Directos</ion-button>
+  <ion-button class="cambia" [routerLink]="['/mostrar-hospital']" color="success">Altruista</ion-button>
+  <ion-row>
+    <ion-col>
+       <ion-card [routerLink]="['/donar-hospital']" >
+           <ion-card-header>
+             <ion-card-title>
+             </ion-card-title>
+           </ion-card-header>
+         </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
